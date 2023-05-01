@@ -1,0 +1,165 @@
+======================
+======= MODES ========
+======================
+
+===== NORMAL MODE (NM) =======
+Start with ':q' repeatedly
+Start with ESC or C-c or C-] from IM
+
+'o' open line below and IM
+'O' open line above and IM
+'x' delete character
+
+== Search =
+Search the word under the cursor 
+'*' to search forward
+'#' to search backward
+'/foo' to search for the first occurence of 'foo' the 'n' or 'N'
+'f'-<character> find character after  cursor then ';' or ','
+'F'-<character> find character before cursor then ';' or ','
+'%' find matching bracket
+
+= Navigate =
+'h','j','k','l' for motion
+'t'-<character> move to character after  cursor then ';' or ','
+'T'-<character> move to character before cursor then ';' or ','
+'w' first character of next word
+'e' last  character of next word
+'b' previous word counting special characters as separate words
+'B' previous word counting special characters as part of words
+'0' beginning of line
+'^' beginning of line, first non-blank
+'$' end of line
+
+C-'g' show position
+<line_number> 'G' go to line_number
+'G' go to last line
+'gg' go to first line
+
+C-'e' scroll down
+C-'i' got to next position
+C-'o' got to last position
+C-'u' move up half a screen
+C-'d' move down half a screen
+
+6<motion_cmd> repeat motion command 6 times
+
+= Find =
+
+'f'<character> - find instances of <character> in the line after cursor
+'F'<character> - find instances of <character> in the line before cursor
+'t'<character> - move to instances of <character> in the line after cursor
+'T'<character> - move to instances of <character> in the line before cursor
+
+After above command: Go
+';' - go forward to next
+',' - go backward to previous
+
+= Delete =
+
+'d' delete
+'dd' delete whole line
+'de' delete from cursor to end of current word
+'dw' delete from cursor to start of next word
+'d$' delete from cursor to EOL
+'D' delete from cursor to EOL
+'dgg' delete from cursor to beginning of file
+'ggdG' delete everything
+
+'diw' delete current word
+'ciw' delete current word and IM
+'dip' delete paragraph
+
+= Copy =
+'y' yank (copy)
+
+= Paste =
+'p' put/paste deleted text on line below
+
+= Replace/Change =
+'ra' replace character under cursor with 'a'
+'rb' replace character under cursor with 'b'
+'rc' replace character under cursor with 'c'
+'rd' replace character under cursor with 'd'
+
+'c' change
+'ce' remove rest of the word and insert mode
+'cw' change until the beginning of next word
+'c$' change the rest of the line
+'c3e' change next three words and insert mode
+'c3w' change next three words and insert mode
+
+'R' replace more than one character (replaces until <Esc>)
+
+= Find and replace =
+
+':s/old/new' replace first occurence 'old' with 'new' 
+':s/old/new/g' replace all occurences of 'old' with 'new' on the line
+':123,456s/old/new/g' replace all occurences of 'old' with 'new' from line 123 to line 456
+':%s/old/new/g' find and replace all occurences in the file of 'old' with 'new' 
+':%s/old/new/gc' find all occurences in the file of 'old' with 'new' and ask to replace for each
+':s/old/new' replace first occurence 'old' with 'new' 
+':s/old/new' replace first occurence 'old' with 'new' 
+
+======= INSERT MODE (IM) ===========
+Start with 'i' to start before character
+Start with 'a' to start after character
+Start with 'A' to start after everything
+
+from NM
+'u' undo
+'U' restore whole line
+C-r redo
+
+======= VISUAL MODE (VM) ==========
+Start with 'v'
+
+':w FILENAME' write the selection to a new file with name 'FILENAME'
+
+======= CMDL MODE (CM) ==========
+Start with :<command
+
+= Buffers =
+:'buffer <ID_or_name>'
+':bnext' / ':bn' next buffer
+':bprevious' / ':bp' previous buffer
+':bfirst' / ':bf' first buffer
+':blast' / ':bl' last buffer
+':bd' delete/close buffer
+C-'^' alternate buffer
+<ID>C-^ specific buffer with number <ID>
+':buffers!' / ':ls!' see all buffers (included non-lister)
+= Set options =
+':set no'<option>' unset option
+':set <option>!' toggle option
+':set <option>?' get option value
+':set <option>=<value>' set option to value
+':set <option>+=<value>' add value to option
+':set <option>-=<value>' subtract value from option
+':set <option>&' reset option
+
+Drop prefix ':' to set value in vimrc
+
+':w FILENAME' create a file with name 'FILENAME' in the current directory
+
+':!<shell cmd>' use the command <shell cmd> in the shell (bash or DOS-terminal)
+
+':r FILENAME' retrieve the file FILENAME and insert after the cursor
+':r !dir' insert the result of the shell command 'dir' after the cursor
+
+=====================
+====== SEARCH =======
+=====================
+
+Use '/'+<searchword> to search
+'n' for next match
+'N' for previous match
+
+===========================
+========== COMBOS =========
+===========================
+
+<F1> open help
+:help open help
+
+C-'ww' switches buffer in a split Vim window
